@@ -4,7 +4,7 @@ Unreal To Do List is an easy to use GUI plugin that supports engine versions 4.2
 
 ### Project Example:
 
-![project_example](https://github.com/user-attachments/assets/a2b38083-235f-43cd-a89d-e5acbab218fb)
+https://github.com/user-attachments/assets/547bb59e-f855-43c9-bb52-482d07a7d27d
 
 ### ✨ Features
 
