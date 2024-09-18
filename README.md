@@ -34,7 +34,6 @@ https://github.com/user-attachments/assets/547bb59e-f855-43c9-bb52-482d07a7d27d
 ### 🛠️ Built With
 
 - Unreal Engine
-- C++
 
 ### 🛡️ License
 
