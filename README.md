@@ -23,11 +23,13 @@ https://github.com/user-attachments/assets/547bb59e-f855-43c9-bb52-482d07a7d27d
 
 2. Unzip and place the Plugins folder into your uproject directory.
 
-3. Navigate to the ToDoList widget in the content browser, then right click and run, then place wherever you'd prefer.
+3. You may need to go into the plugins tab in unreal, and enable Editor Scripting Utilities, and the ToDoList plugin, if not already enabled.
 
-4. You can customize the color of the theme, by editing the DT_ToDoList_Themes, then recompiling the ToDoList widget.
+4. Navigate to the ToDoList widget in the content browser, then right click and run, then place wherever you'd prefer.
 
-5. At the top of the unreal browser, hover over window, then at the bottom you can save the layout.
+5. You can customize the color of the theme, by editing the DT_ToDoList_Themes, then recompiling the ToDoList widget.
+
+6. At the top of the unreal browser, hover over window, then at the bottom you can save the layout.
 
 ### 🛠️ Built With
 
