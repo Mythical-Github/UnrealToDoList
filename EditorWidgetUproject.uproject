@@ -1,0 +1,13 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{1594AB1D-4F50-0D0D-1CF0-298FE2D0FEEA}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "EditorWidgetUproject",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
