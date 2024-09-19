@@ -1,13 +1,13 @@
 // Copyright 1998-2016 Epic Games, Inc. All Rights Reserved.
 
-#include "ExampleEditorWidgetPrivatePCH.h"
-#include "ExampleEditorWidgetStyle.h"
+#include "UnrealToDoListPrivatePCH.h"
+#include "UnrealToDoListStyle.h"
 #include "SlateGameResources.h"
 #include "IPluginManager.h"
 
-TSharedPtr< FSlateStyleSet > FExampleEditorWidgetStyle::StyleInstance = NULL;
+TSharedPtr< FSlateStyleSet > FUnrealToDoListStyle::StyleInstance = NULL;
 
-void FExampleEditorWidgetStyle::Initialize()
+void FUnrealToDoListStyle::Initialize()
 {
 	if (!StyleInstance.IsValid())
 	{
@@ -16,16 +16,16 @@ void FExampleEditorWidgetStyle::Initialize()
 	}
 }
 
-void FExampleEditorWidgetStyle::Shutdown()
+void FUnrealToDoListStyle::Shutdown()
 {
 	FSlateStyleRegistry::UnRegisterSlateStyle(*StyleInstance);
 	ensure(StyleInstance.IsUnique());
 	StyleInstance.Reset();
 }
 
-FName FExampleEditorWidgetStyle::GetStyleSetName()
+FName FUnrealToDoListStyle::GetStyleSetName()
 {
-	static FName StyleSetName(TEXT("ExampleEditorWidgetStyle"));
+	static FName StyleSetName(TEXT("UnrealToDoListStyle"));
 	return StyleSetName;
 }
 
@@ -39,12 +39,12 @@ const FVector2D Icon16x16(16.0f, 16.0f);
 const FVector2D Icon20x20(20.0f, 20.0f);
 const FVector2D Icon40x40(40.0f, 40.0f);
 
-TSharedRef< FSlateStyleSet > FExampleEditorWidgetStyle::Create()
+TSharedRef< FSlateStyleSet > FUnrealToDoListStyle::Create()
 {
-	TSharedRef< FSlateStyleSet > Style = MakeShareable(new FSlateStyleSet("ExampleEditorWidgetStyle"));
-	Style->SetContentRoot(IPluginManager::Get().FindPlugin("ExampleEditorWidget")->GetBaseDir() / TEXT("Resources"));
+	TSharedRef< FSlateStyleSet > Style = MakeShareable(new FSlateStyleSet("UnrealToDoListStyle"));
+	Style->SetContentRoot(IPluginManager::Get().FindPlugin("UnrealToDoList")->GetBaseDir() / TEXT("Resources"));
 
-	Style->Set("ExampleEditorWidget.OpenPluginWindow", new IMAGE_BRUSH(TEXT("ButtonIcon_40x"), Icon40x40));
+	Style->Set("UnrealToDoList.OpenPluginWindow", new IMAGE_BRUSH(TEXT("ButtonIcon_40x"), Icon40x40));
 
 	return Style;
 }
@@ -55,7 +55,7 @@ TSharedRef< FSlateStyleSet > FExampleEditorWidgetStyle::Create()
 #undef TTF_FONT
 #undef OTF_FONT
 
-void FExampleEditorWidgetStyle::ReloadTextures()
+void FUnrealToDoListStyle::ReloadTextures()
 {
 	if (FSlateApplication::IsInitialized())
 	{
@@ -63,7 +63,7 @@ void FExampleEditorWidgetStyle::ReloadTextures()
 	}
 }
 
-const ISlateStyle& FExampleEditorWidgetStyle::Get()
+const ISlateStyle& FUnrealToDoListStyle::Get()
 {
 	return *StyleInstance;
 }

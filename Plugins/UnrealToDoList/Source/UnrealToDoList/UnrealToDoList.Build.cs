@@ -2,14 +2,14 @@
 
 using UnrealBuildTool;
 
-public class ExampleEditorWidget : ModuleRules
+public class UnrealToDoList : ModuleRules
 {
-	public ExampleEditorWidget(TargetInfo Target)
+	public UnrealToDoList(TargetInfo Target)
 	{
 		
 		PublicIncludePaths.AddRange(
 			new string[] {
-				"ExampleEditorWidget/Public"
+				"UnrealToDoList/Public"
 				// ... add public include paths required here ...
 			}
 			);
@@ -17,7 +17,7 @@ public class ExampleEditorWidget : ModuleRules
 		
 		PrivateIncludePaths.AddRange(
 			new string[] {
-				"ExampleEditorWidget/Private",
+				"UnrealToDoList/Private",
 				// ... add other private include paths required here ...
 			}
 			);

@@ -1,12 +1,12 @@
 // Copyright 1998-2016 Epic Games, Inc. All Rights Reserved.
 
-#include "ExampleEditorWidgetPrivatePCH.h"
+#include "UnrealToDoListPrivatePCH.h"
 #include "SlateBasics.h"
 #include "SlateExtras.h"
-#include "ExampleEditorWidgetStyle.h"
-#include "ExampleEditorWidgetCommands.h"
+#include "UnrealToDoListStyle.h"
+#include "UnrealToDoListCommands.h"
 #include "LevelEditor.h"
-#include "ExampleEditorWidget.h" // Your module's header file
+#include "UnrealToDoList.h" // Your module's header file
 #include "Widgets/Docking/SDockTab.h"
 #include "Widgets/Layout/SBox.h"
 #include "Widgets/Text/STextBlock.h"
@@ -16,57 +16,57 @@
 #include "Editor/EditorEngine.h"
 #include "Editor.h"
 
-static const FName ExampleEditorWidgetTabName("ExampleEditorWidget");
+static const FName UnrealToDoListTabName("UnrealToDoList");
 
-#define LOCTEXT_NAMESPACE "FExampleEditorWidgetModule"
+#define LOCTEXT_NAMESPACE "FUnrealToDoListModule"
 
-const TCHAR* WidgetClassPath = TEXT("/ExampleEditorWidget/Widgets/WBP_ExampleEditorWidget.WBP_ExampleEditorWidget_C"); // Consolidated path
+const TCHAR* WidgetClassPath = TEXT("/UnrealToDoList/Widgets/WBP_UnrealToDoListEntry.WBP_UnrealToDoListEntry_C");
 
-void FExampleEditorWidgetModule::StartupModule()
+void FUnrealToDoListModule::StartupModule()
 {
-	FExampleEditorWidgetStyle::Initialize();
-	FExampleEditorWidgetStyle::ReloadTextures();
+	FUnrealToDoListStyle::Initialize();
+	FUnrealToDoListStyle::ReloadTextures();
 
-	FExampleEditorWidgetCommands::Register();
+	FUnrealToDoListCommands::Register();
 
 	PluginCommands = MakeShareable(new FUICommandList);
 
 	PluginCommands->MapAction(
-		FExampleEditorWidgetCommands::Get().OpenPluginWindow,
-		FExecuteAction::CreateRaw(this, &FExampleEditorWidgetModule::PluginButtonClicked),
+		FUnrealToDoListCommands::Get().OpenPluginWindow,
+		FExecuteAction::CreateRaw(this, &FUnrealToDoListModule::PluginButtonClicked),
 		FCanExecuteAction());
 
 	FLevelEditorModule& LevelEditorModule = FModuleManager::LoadModuleChecked<FLevelEditorModule>("LevelEditor");
 
 	{
 		TSharedPtr<FExtender> MenuExtender = MakeShareable(new FExtender());
-		MenuExtender->AddMenuExtension("WindowLayout", EExtensionHook::After, PluginCommands, FMenuExtensionDelegate::CreateRaw(this, &FExampleEditorWidgetModule::AddMenuExtension));
+		MenuExtender->AddMenuExtension("WindowLayout", EExtensionHook::After, PluginCommands, FMenuExtensionDelegate::CreateRaw(this, &FUnrealToDoListModule::AddMenuExtension));
 
 		LevelEditorModule.GetMenuExtensibilityManager()->AddExtender(MenuExtender);
 	}
 
 	{
 		TSharedPtr<FExtender> ToolbarExtender = MakeShareable(new FExtender);
-		ToolbarExtender->AddToolBarExtension("Settings", EExtensionHook::After, PluginCommands, FToolBarExtensionDelegate::CreateRaw(this, &FExampleEditorWidgetModule::AddToolbarExtension));
+		ToolbarExtender->AddToolBarExtension("Settings", EExtensionHook::After, PluginCommands, FToolBarExtensionDelegate::CreateRaw(this, &FUnrealToDoListModule::AddToolbarExtension));
 
 		LevelEditorModule.GetToolBarExtensibilityManager()->AddExtender(ToolbarExtender);
 	}
 
-	FGlobalTabmanager::Get()->RegisterNomadTabSpawner(ExampleEditorWidgetTabName, FOnSpawnTab::CreateRaw(this, &FExampleEditorWidgetModule::OnSpawnPluginTab))
-		.SetDisplayName(LOCTEXT("FExampleEditorWidgetTabTitle", "ExampleEditorWidget"))
+	FGlobalTabmanager::Get()->RegisterNomadTabSpawner(UnrealToDoListTabName, FOnSpawnTab::CreateRaw(this, &FUnrealToDoListModule::OnSpawnPluginTab))
+		.SetDisplayName(LOCTEXT("FUnrealToDoListTabTitle", "UnrealToDoList"))
 		.SetMenuType(ETabSpawnerMenuType::Hidden);
 
 	CachedUserWidget = nullptr;
 }
 
-void FExampleEditorWidgetModule::ShutdownModule()
+void FUnrealToDoListModule::ShutdownModule()
 {
-	FExampleEditorWidgetStyle::Shutdown();
-	FExampleEditorWidgetCommands::Unregister();
-	FGlobalTabmanager::Get()->UnregisterNomadTabSpawner(ExampleEditorWidgetTabName);
+	FUnrealToDoListStyle::Shutdown();
+	FUnrealToDoListCommands::Unregister();
+	FGlobalTabmanager::Get()->UnregisterNomadTabSpawner(UnrealToDoListTabName);
 }
 
-TSharedRef<SDockTab> FExampleEditorWidgetModule::OnSpawnPluginTab(const FSpawnTabArgs& SpawnTabArgs)
+TSharedRef<SDockTab> FUnrealToDoListModule::OnSpawnPluginTab(const FSpawnTabArgs& SpawnTabArgs)
 {
 	if (!CachedUserWidget)
 	{
@@ -144,21 +144,21 @@ TSharedRef<SDockTab> FExampleEditorWidgetModule::OnSpawnPluginTab(const FSpawnTa
 		];
 }
 
-void FExampleEditorWidgetModule::PluginButtonClicked()
+void FUnrealToDoListModule::PluginButtonClicked()
 {
-	FGlobalTabmanager::Get()->InvokeTab(ExampleEditorWidgetTabName);
+	FGlobalTabmanager::Get()->InvokeTab(UnrealToDoListTabName);
 }
 
-void FExampleEditorWidgetModule::AddMenuExtension(FMenuBuilder& Builder)
+void FUnrealToDoListModule::AddMenuExtension(FMenuBuilder& Builder)
 {
-	Builder.AddMenuEntry(FExampleEditorWidgetCommands::Get().OpenPluginWindow);
+	Builder.AddMenuEntry(FUnrealToDoListCommands::Get().OpenPluginWindow);
 }
 
-void FExampleEditorWidgetModule::AddToolbarExtension(FToolBarBuilder& Builder)
+void FUnrealToDoListModule::AddToolbarExtension(FToolBarBuilder& Builder)
 {
-	Builder.AddToolBarButton(FExampleEditorWidgetCommands::Get().OpenPluginWindow);
+	Builder.AddToolBarButton(FUnrealToDoListCommands::Get().OpenPluginWindow);
 }
 
 #undef LOCTEXT_NAMESPACE
 
-IMPLEMENT_MODULE(FExampleEditorWidgetModule, ExampleEditorWidget)
+IMPLEMENT_MODULE(FUnrealToDoListModule, UnrealToDoList)

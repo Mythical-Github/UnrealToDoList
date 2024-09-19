@@ -3,11 +3,11 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class EditorWidgetUprojectTarget : TargetRules
+public class ToDoListUprojectEditorTarget : TargetRules
 {
-	public EditorWidgetUprojectTarget(TargetInfo Target)
+	public ToDoListUprojectEditorTarget(TargetInfo Target)
 	{
-		Type = TargetType.Game;
+		Type = TargetType.Editor;
 	}
 
 	//
@@ -20,6 +20,6 @@ public class EditorWidgetUprojectTarget : TargetRules
 		ref List<string> OutExtraModuleNames
 		)
 	{
-		OutExtraModuleNames.AddRange( new string[] { "EditorWidgetUproject" } );
+		OutExtraModuleNames.AddRange( new string[] { "ToDoListUproject" } );
 	}
 }

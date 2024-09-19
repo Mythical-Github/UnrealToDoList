@@ -3,13 +3,13 @@
 #pragma once
 
 #include "GameFramework/GameMode.h"
-#include "EditorWidgetUprojectGameMode.generated.h"
+#include "ToDoListUprojectGameMode.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class EDITORWIDGETUPROJECT_API AEditorWidgetUprojectGameMode : public AGameMode
+class TODOLISTUPROJECT_API AToDoListUprojectGameMode : public AGameMode
 {
 	GENERATED_BODY()
 	

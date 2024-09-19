@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class EditorWidgetUproject : ModuleRules
+public class ToDoListUproject : ModuleRules
 {
-	public EditorWidgetUproject(TargetInfo Target)
+	public ToDoListUproject(TargetInfo Target)
 	{
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
 

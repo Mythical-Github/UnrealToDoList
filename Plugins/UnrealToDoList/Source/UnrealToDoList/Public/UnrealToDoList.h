@@ -8,7 +8,7 @@
 class FToolBarBuilder;
 class FMenuBuilder;
 
-class FExampleEditorWidgetModule : public IModuleInterface
+class FUnrealToDoListModule : public IModuleInterface
 {
 public:
 

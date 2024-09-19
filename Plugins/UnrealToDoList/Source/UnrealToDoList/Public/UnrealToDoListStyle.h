@@ -5,7 +5,7 @@
 #include "SlateBasics.h"
 
 /**  */
-class FExampleEditorWidgetStyle
+class FUnrealToDoListStyle
 {
 public:
 

@@ -5,7 +5,7 @@
 	"Description": "",
 	"Modules": [
 		{
-			"Name": "EditorWidgetUproject",
+			"Name": "ToDoListUproject",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
