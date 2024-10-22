@@ -1,6 +1,7 @@
 # UnrealToDoList
 
 Unreal To Do List is an easy to use GUI plugin that supports engine versions 4.22 and onwards, that helps you keep track of development tasks within the editor, featuring support for themes so you can work in style.
+It is blueprint only, so it can also be packaged as a mod for various titles.
 
 ### Project Example:
 
